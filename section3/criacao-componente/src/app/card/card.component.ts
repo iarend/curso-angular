@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+interface IPlan{
+  infos: IInfos;
+}
+
+interface IInfos{
+  type: string;
+  price: number;
+}
+
 @Component({
   selector: 'app-card',
   standalone: false,
@@ -9,23 +18,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  plan = {
-    type: 'Teste',
-    price: 100
+  //@ts-ignore
+  plan: IPlan = {
+    infos: {
+      type: 'Carregando...',
+      price: 0
+    }
   };
 
   ngOnInit(): void {
     console.log('ngOnInit');
 
     setTimeout(() => {
-      console.log('Set timeout');
-      this.plan.type = 'Simples';
-      this.plan.price = 1000;
+      console.log('Set timeout Start');
+      this.plan.infos.type = 'Simples';
+      this.plan.infos.price = 1000;
     }, 4000);
+    console.log('Set timeout End');
   }
 
   getFullPrice(){
     console.log('getFullPrice');
-    return `R$ ${this.plan.price},00/Mês`;
+    return `R$ ${this.plan.infos.price},00/Mês`;
   }
 }
