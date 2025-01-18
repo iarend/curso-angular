@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: false,
   
   templateUrl: './card-roxo-button.component.html',
-  styleUrl: './card-roxo-button.component.scss'
+  styleUrls: ['./card-roxo-button.component.scss', './card-roxo-button-2.component.scss']
 })
 export class CardRoxoButtonComponent {
 
